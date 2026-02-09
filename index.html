@@ -1,42 +1,57 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PhotoPortfolio - Портфолио фотографа</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vincent Fischer - PhotoPortfolio</title>
+    <!-- Подключаем шрифты (Montserrat, как было в макете) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/globals.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    
+    <!-- Шапка с именем -->
+    <header class="site-header">
+      <div class="container">
+        <h1 class="logo">Vincent Fischer</h1>
         <nav>
-            <div class="logo">LensMaster</div>
-            <ul>
-                <li><a href="#gallery">Галерея</a></li>
-                <li><a href="#about">Обо мне</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
+          <a href="#">Портфолио</a>
+          <a href="#">Обо мне</a>
         </nav>
+      </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Лови момент</h1>
-            <p>Профессиональная фотосъемка</p>
-            <button>Смотреть работы</button>
-        </section>
+    <main class="container">
+      <!-- Большой прямоугольник (Hero Section) -->
+      <section class="hero-section">
+        <!-- Заглушка изображения 925x567 -->
+        <img src="https://placehold.co/925x567/333/FFF?text=Main+Photo" alt="Главное фото" class="hero-image">
+        
+        <div class="hero-text">
+          <h2>Искусство видеть</h2>
+          <button id="gallery-btn">Смотреть работы</button>
+        </div>
+      </section>
 
-        <section id="gallery" class="gallery">
-            <!-- Сюда позже добавим фото -->
-            <div class="photo-placeholder">Фото 1</div>
-            <div class="photo-placeholder">Фото 2</div>
-            <div class="photo-placeholder">Фото 3</div>
-        </section>
+      <!-- Три маленьких квадрата (Gallery Preview) -->
+      <section class="gallery-preview">
+        <div class="gallery-item">
+            <img src="https://placehold.co/300x300/444/FFF?text=Photo+1" alt="Фото 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://placehold.co/300x300/444/FFF?text=Photo+2" alt="Фото 2">
+        </div>
+        <div class="gallery-item">
+            <img src="https://placehold.co/300x300/444/FFF?text=Photo+3" alt="Фото 3">
+        </div>
+      </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 PhotoPortfolio. Все права защищены.</p>
+      <p>&copy; 2024 Vincent Fischer Photography</p>
     </footer>
 
     <script src="js/script.js"></script>
-</body>
+  </body>
 </html>

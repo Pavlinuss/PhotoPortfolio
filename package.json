@@ -1,0 +1,27 @@
+{
+  "name": "photoportfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pavlinuss/PhotoPortfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Pavlinuss/PhotoPortfolio/issues"
+  },
+  "homepage": "https://github.com/Pavlinuss/PhotoPortfolio#readme",
+  "dependencies": {
+    "lodash": "^4.17.23"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
