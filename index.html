@@ -1,57 +1,155 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vincent Fischer - PhotoPortfolio</title>
-    <!-- Подключаем шрифты (Montserrat, как было в макете) -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/globals.css" />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    
-    <!-- Шапка с именем -->
-    <header class="site-header">
-      <div class="container">
-        <h1 class="logo">Vincent Fischer</h1>
-        <nav>
-          <a href="#">Портфолио</a>
-          <a href="#">Обо мне</a>
-        </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Портфолио фотографа">
+  <title>Портфолио фотографа</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body itemscope itemtype="https://schema.org/WebPage">
+
+  <a href="#main" class="skip-link">Перейти к основному содержимому</a>
+
+  <header class="header page-header" itemscope itemtype="https://schema.org/Person">
+    <div class="header__inner">
+      <a class="header__logo" href="#" itemprop="name">Vincent Fischer</a>
+
+      <nav class="header__nav" aria-label="Основная навигация">
+        <ul class="header__menu">
+          <li class="header__menu-item">
+            <a href="#portfolio" class="header__link">Портфолио</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="#about" class="header__link">О фотографе</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="#contact" class="header__link">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <meta itemprop="jobTitle" content="Фотограф">
+    <meta itemprop="description" content="Профессиональный портретный фотограф.">
+  </header>
+
+  <main class="main page-main" id="main" itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__image-wrapper" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+        <img
+          class="hero__image"
+          src="images/author.png"
+          alt="Портрет фотографа Vincent Fischer в студии"
+          itemprop="contentUrl"
+        >
+        <meta itemprop="name" content="Портрет Vincent Fischer">
       </div>
-    </header>
 
-    <main class="container">
-      <!-- Большой прямоугольник (Hero Section) -->
-      <section class="hero-section">
-        <!-- Заглушка изображения 925x567 -->
-        <img src="https://placehold.co/925x567/333/FFF?text=Main+Photo" alt="Главное фото" class="hero-image">
-        
-        <div class="hero-text">
-          <h2>Искусство видеть</h2>
-          <button id="gallery-btn">Смотреть работы</button>
-        </div>
-      </section>
+      <div class="hero__content">
+        <h1 class="hero__title" id="hero-title" itemprop="name">
+          Vincent Fischer — портретный фотограф
+        </h1>
+        <p class="hero__text" itemprop="description">
+          Создаю атмосферные портреты и минималистичные черно-белые серии.
+        </p>
+      </div>
+    </section>
 
-      <!-- Три маленьких квадрата (Gallery Preview) -->
-      <section class="gallery-preview">
-        <div class="gallery-item">
-            <img src="https://placehold.co/300x300/444/FFF?text=Photo+1" alt="Фото 1">
-        </div>
-        <div class="gallery-item">
-            <img src="https://placehold.co/300x300/444/FFF?text=Photo+2" alt="Фото 2">
-        </div>
-        <div class="gallery-item">
-            <img src="https://placehold.co/300x300/444/FFF?text=Photo+3" alt="Фото 3">
-        </div>
-      </section>
-    </main>
+    <section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
+      <h2 class="portfolio__title" id="portfolio-title">Избранные работы</h2>
 
-    <footer>
-      <p>&copy; 2024 Vincent Fischer Photography</p>
-    </footer>
+      <div class="portfolio__grid">
+        <figure class="portfolio__item" itemscope itemtype="https://schema.org/Photograph">
+          <img
+            src="images/photo1.jpg"
+            class="portfolio__image"
+            alt="Черно-белый портрет девушки у окна"
+            itemprop="image"
+          >
+          <figcaption class="portfolio__caption">
+            <span itemprop="description">Портрет у окна, естественный свет.</span>
+            <span class="portfolio__creator" itemprop="creator">Vincent Fischer</span>
+          </figcaption>
+        </figure>
 
-    <script src="js/script.js"></script>
-  </body>
+        <figure class="portfolio__item" itemscope itemtype="https://schema.org/Photograph">
+          <img
+            src="images/photo2.jpg"
+            class="portfolio__image"
+            alt="Портрет мужчины в классическом костюме на темном фоне"
+            itemprop="image"
+          >
+          <figcaption class="portfolio__caption">
+            <span itemprop="description">Студийный портрет в классическом стиле.</span>
+            <span class="portfolio__creator" itemprop="creator">Vincent Fischer</span>
+          </figcaption>
+        </figure>
+
+        <figure class="portfolio__item" itemscope itemtype="https://schema.org/Photograph">
+          <img
+            src="images/photo3.jpg"
+            class="portfolio__image"
+            alt="Портрет девушки в городском пейзаже вечером"
+            itemprop="image"
+          >
+          <figcaption class="portfolio__caption">
+            <span itemprop="description">Уличный портрет в городском пейзаже.</span>
+            <span class="portfolio__creator" itemprop="creator">Vincent Fischer</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <article
+      class="about"
+      id="about"
+      aria-labelledby="about-title"
+      itemscope
+      itemtype="https://schema.org/Person"
+    >
+      <header class="about__header">
+        <h2 class="about__title" id="about-title">О фотографе</h2>
+      </header>
+
+      <div class="about__content">
+        <p itemprop="description">
+          Меня зовут Vincent Fischer. Я специализируюсь на портретной и художественной фотографии,
+          работаю в Минске и по всему миру.
+        </p>
+        <p>
+          В моих проектах я сочетаю минимализм, естественный свет и внимание к эмоциям модели.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <aside
+    class="sidebar page-sidebar"
+    aria-label="Контакты и социальные сети"
+    id="contact"
+  >
+    <section class="sidebar__section">
+      <h2 class="sidebar__title">Контакты</h2>
+      <p>
+        Email:
+        <a href="mailto:hello@vincentfischer.com">hello@vincentfischer.com</a>
+      </p>
+      <p>
+        Instagram:
+        <a href="https://instagram.com/vincentfischer">instagram.com/vincentfischer</a>
+      </p>
+    </section>
+  </aside>
+
+  <footer class="footer page-footer" itemprop="footer">
+    <div class="footer__inner">
+      <p class="footer__copy">
+        © 2026 Vincent Fischer. Все права защищены.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
 </html>
