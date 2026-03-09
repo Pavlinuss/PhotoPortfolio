@@ -1,0 +1,84 @@
+
+/* Секция контактов (теперь часть сетки main__container) */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрируем на мобильных */
+  text-align: center;
+  background-color: var(--color-primary); /* Как карточки */
+  padding: var(--spacing-md);
+  border-radius: 8px;
+  /* Добавляем визуальный объем */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.sidebar__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-xs);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar__section p {
+  color: var(--color-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.sidebar__section a {
+  color: var(--color-text);
+  font-weight: var(--font-weight-regular);
+  transition: color 0.3s ease;
+}
+
+.sidebar__section a:hover,
+.sidebar__section a:focus {
+  color: var(--color-accent);
+}
+
+
+.footer {
+  background-color: var(--color-primary);
+  padding: var(--spacing-sm) 0;
+  margin-top: auto; /* Прижимается к низу, так как body - flex */
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--spacing-sm);
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: var(--spacing-sm);
+}
+
+.footer__copy {
+  font-size: var(--font-size-sm);
+  color: var(--color-secondary);
+  text-align: center;
+}
+
+
+@media (min-width: 768px) {
+  .sidebar {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .footer__inner {
+    flex-direction: row;
+    justify-content: center; 
+  }
+}
