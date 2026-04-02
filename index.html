@@ -20,10 +20,8 @@
     <div class="header__container">
       <a class="header__logo" href="#" itemprop="name">Vincent Fischer</a>
 
-      <!-- Скрытый чекбокс для работы CSS-бургера -->
       <input type="checkbox" id="burger-toggle" class="header__burger-checkbox" aria-hidden="true">
-      
-      <!-- Label выступает в роли кнопки бургера -->
+
       <label for="burger-toggle" class="header__burger" aria-label="Открыть меню">
         <span class="header__burger-line"></span>
         <span class="header__burger-line"></span>
@@ -50,9 +48,7 @@
   </header>
 
   <main class="main page-main" id="main" itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
-    <div class="main__container">
-      <div class="main__content">
-        <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="hero__image-wrapper" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
         <img
           class="hero__image"
@@ -76,8 +72,15 @@
     <section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
       <h2 class="portfolio__title" id="portfolio-title">Избранные работы</h2>
 
+      <div class="portfolio__filters">
+        <button class="filter-btn active" data-filter="all">Все</button>
+        <button class="filter-btn" data-filter="portrait">Портрет</button>
+        <button class="filter-btn" data-filter="studio">Студия</button>
+        <button class="filter-btn" data-filter="street">Улица</button>
+      </div>
+
       <div class="portfolio__grid">
-        <figure class="portfolio__item" itemscope itemtype="https://schema.org/Photograph">
+        <figure class="portfolio__item" data-category="portrait" itemscope itemtype="https://schema.org/Photograph">
           <img
             src="images/photo1.jpg"
             class="portfolio__image"
@@ -90,7 +93,7 @@
           </figcaption>
         </figure>
 
-        <figure class="portfolio__item" itemscope itemtype="https://schema.org/Photograph">
+        <figure class="portfolio__item" data-category="studio" itemscope itemtype="https://schema.org/Photograph">
           <img
             src="images/photo2.jpg"
             class="portfolio__image"
@@ -103,7 +106,7 @@
           </figcaption>
         </figure>
 
-        <figure class="portfolio__item" itemscope itemtype="https://schema.org/Photograph">
+        <figure class="portfolio__item" data-category="street" itemscope itemtype="https://schema.org/Photograph">
           <img
             src="images/photo3.jpg"
             class="portfolio__image"
@@ -115,6 +118,22 @@
             <span class="portfolio__creator" itemprop="creator">Vincent Fischer</span>
           </figcaption>
         </figure>
+      </div>
+
+      <div class="slider">
+        <button class="slider__btn slider__btn--prev" aria-label="Назад">&#8592;</button>
+        <div class="slider__track">
+          <div class="slider__item active">
+            <img src="images/photo1.jpg" alt="Фото 1">
+          </div>
+          <div class="slider__item">
+            <img src="images/photo2.jpg" alt="Фото 2">
+          </div>
+          <div class="slider__item">
+            <img src="images/photo3.jpg" alt="Фото 3">
+          </div>
+        </div>
+        <button class="slider__btn slider__btn--next" aria-label="Вперёд">&#8594;</button>
       </div>
     </section>
 
@@ -139,7 +158,16 @@
         </p>
       </div>
     </article>
-      </div>
+  </main>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Просмотр фото">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+      <button class="modal__close" aria-label="Закрыть">&times;</button>
+      <img class="modal__img" src="" alt="">
+      <p class="modal__caption"></p>
+    </div>
+  </div>
 
   <aside
     class="sidebar page-sidebar"
@@ -154,7 +182,7 @@
       </p>
       <p>
         <span>Instagram:</span>
-        <a href="https://instagram.com/vincentfischer">@vincentfischer</a>
+        <a href="https://instagram.com/vincentfischer" target="_blank" rel="noopener noreferrer">@vincentfischer</a>
       </p>
       <p>
         <span>Локация:</span>
@@ -162,8 +190,6 @@
       </p>
     </section>
   </aside>
-    </div>
-  </main>
 
   <footer class="footer page-footer" itemprop="footer">
     <div class="footer__inner">
@@ -173,6 +199,10 @@
     </div>
   </footer>
 
+  <script src="js/utils/storage.js"></script>
+  <script src="js/components/filter.js"></script>
+  <script src="js/components/modal.js"></script>
+  <script src="js/components/slider.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
