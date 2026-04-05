@@ -1,0 +1,145 @@
+
+
+.header {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 100;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+  position: relative;
+}
+
+.header__logo {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-light);
+  text-transform: lowercase; /* Делаем логотип строчными буквами, как в макете */
+  letter-spacing: 1px;
+  color: var(--color-white);
+  z-index: 10;
+}
+
+.header__burger {
+  position: absolute;
+  right: var(--spacing-sm); /* Прибиваем бургер вправо */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 100;
+}
+
+.header__burger-checkbox {
+  display: none;
+}
+
+.header__burger-line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-white);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.header__nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-primary);
+  display: none; 
+  padding: var(--spacing-md) var(--spacing-sm);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  z-index: 90;
+}
+
+/* Checkbox Hack: Показываем меню, если чекбокс нажат */
+.header__burger-checkbox:checked ~ .header__nav {
+  display: block;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Checkbox Hack: Анимация иконки (крестик) */
+.header__burger-checkbox:checked + .header__burger .header__burger-line:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.header__burger-checkbox:checked + .header__burger .header__burger-line:nth-child(2) {
+  opacity: 0;
+}
+.header__burger-checkbox:checked + .header__burger .header__burger-line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header__menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.header__link {
+  font-size: var(--font-size-lg);
+  color: var(--color-white);
+  opacity: 0.8;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.header__link:hover,
+.header__link:focus {
+  color: var(--color-accent);
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .header__container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* Скрываем бургер и чекбокс */
+  .header__burger,
+  .header__burger-checkbox {
+    display: none;
+  }
+
+  /* Показываем навигацию в нормальном потоке */
+  .header__nav {
+    position: static;
+    display: block;
+    width: auto;
+    padding: 0;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  /* Делаем меню горизонтальным */
+  .header__menu {
+    flex-direction: row;
+    gap: var(--spacing-md);
+  }
+
+  .header__link {
+    font-size: var(--font-size-base);
+  }
+}

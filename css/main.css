@@ -1,0 +1,176 @@
+
+
+.main {
+  flex-grow: 1;
+  padding: var(--spacing-md) 0;
+}
+
+.main__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.main__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* Сайдбар теперь позиционируется только на десктопе */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  background-color: var(--color-primary); /* Легкая подложка для карточки */
+  border-radius: 8px;
+  padding: var(--spacing-sm);
+}
+
+.hero__image-wrapper {
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.hero__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+.hero__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+}
+
+.hero__text {
+  font-size: var(--font-size-base);
+  color: var(--color-secondary);
+}
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.portfolio__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Сетка внутри портфолио для мобилки (одна колонка) */
+.portfolio__grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.portfolio__item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.portfolio__image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.portfolio__caption {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-sm);
+  color: var(--color-secondary);
+}
+
+.portfolio__creator {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  background-color: var(--color-primary);
+  border-radius: 8px;
+  padding: var(--spacing-sm);
+}
+
+.about__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  color: var(--color-secondary);
+}
+
+@media (min-width: 768px) {
+  .main__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Сетка внутри портфолио для планшетов и выше (2 колонки) */
+  .portfolio__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .main__container {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "content sidebar";
+    align-items: start;
+  }
+
+  .main__content {
+    grid-area: content;
+    /* Центрируем контент внутри своей 2fr колонки и ограничиваем ширину, чтобы не был слишком растянут */
+    max-width: 800px;
+    justify-self: center;
+    width: 100%;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    /* Возвращаем его наверх и заставляем плавать при скролле */
+    align-self: start;
+    position: sticky;
+    top: var(--spacing-xl); /* Отступ от верхнего края экрана при прилипании */
+    margin-top: 0;
+  }
+
+  .portfolio__grid {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: var(--spacing-md);
+    align-items: start;
+  }
+
+  /* Красиво разбрасываем картинки (эффект "каменной кладки") */
+  .portfolio__item:nth-child(even) {
+    margin-top: var(--spacing-xl);
+  }
+}

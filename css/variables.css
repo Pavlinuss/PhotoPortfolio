@@ -1,0 +1,31 @@
+:root {
+  /* Цвета из макета Figma (наша палитра) */
+  --color-primary: #2a2a2a;
+  --color-secondary: #959595;
+  --color-accent: #d4af37;
+  --color-background: #1a1a1a;
+  --color-text: #f0f0f0;
+  --color-white: #ffffff;
+
+  /* Типографика из макета */
+  --font-family-main: 'Montserrat', sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Отступы по макету */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Breakpoints согласно адаптивному макету */
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+}
