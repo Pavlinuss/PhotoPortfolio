@@ -3,6 +3,14 @@ export default class LocalStorageService {
         this.storage = window.localStorage;
     }
 
+    isCacheEnvelope(obj) {
+        return !!obj &&
+            typeof obj === 'object' &&
+            Object.prototype.hasOwnProperty.call(obj, 'value') &&
+            typeof obj.timestamp === 'number' &&
+            typeof obj.expiry === 'number';
+    }
+
     set(key, value, cacheDurationMs = 3600000) { 
         try {
             const item = {
@@ -23,15 +31,24 @@ export default class LocalStorageService {
             const itemStr = this.storage.getItem(key);
             if (!itemStr) return null;
 
-            const item = JSON.parse(itemStr);
-            const now = new Date().getTime();
+            const parsed = JSON.parse(itemStr);
 
-            if (now > item.expiry) {
-                this.remove(key);
-                return null;
+            if (this.isCacheEnvelope(parsed)) {
+                const now = new Date().getTime();
+                if (now > parsed.expiry) {
+                    this.remove(key);
+                    return null;
+                }
+                return parsed.value;
             }
-            return item.value;
+
+            // If something stored plain JSON (not our cache envelope), return it as-is.
+            return parsed;
         } catch (error) {
+            // Non-JSON values (e.g. "all") may coexist in localStorage; treat them as raw strings.
+            if (error instanceof SyntaxError) {
+                return this.storage.getItem(key);
+            }
             console.error('Error reading from localStorage:', error);
             return null;
         }
@@ -42,9 +59,21 @@ export default class LocalStorageService {
     }
 
     clearExpired() {
+        const now = new Date().getTime();
         for (let i = 0; i < this.storage.length; i++) {
             const key = this.storage.key(i);
-            this.get(key); 
+            if (!key) continue;
+            const itemStr = this.storage.getItem(key);
+            if (!itemStr) continue;
+
+            try {
+                const parsed = JSON.parse(itemStr);
+                if (this.isCacheEnvelope(parsed) && now > parsed.expiry) {
+                    this.remove(key);
+                }
+            } catch {
+                // ignore non-JSON items
+            }
         }
     }
     
