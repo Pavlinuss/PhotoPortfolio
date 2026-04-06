@@ -48,6 +48,8 @@
   </header>
 
   <main class="main page-main" id="main" itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
+    <div class="main__container">
+      <div class="main__content">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__image-wrapper" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
         <img
@@ -137,6 +139,24 @@
       </div>
     </section>
 
+    <section class="portfolio-section">
+      <div class="controls-wrapper">
+          <form id="search-form">
+              <input type="text" id="search-input" placeholder="Поиск фото (например: nature, architecture)..." required>
+              <button type="submit">Искать</button>
+          </form>
+          <button id="refresh-btn">Обновить данные</button>
+          <button id="clear-cache-btn">Очистить кэш</button>
+          <button id="show-favorites-btn">Показать избранное</button>
+      </div>
+
+      <div id="loading-indicator" style="display: none;">Загрузка фотографий...</div>
+
+      <div id="data-container" class="gallery-grid"></div>
+    </section>
+
+    <script type="module" src="./js/script.js"></script>
+
     <article
       class="about"
       id="about"
@@ -158,17 +178,7 @@
         </p>
       </div>
     </article>
-  </main>
-
-  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Просмотр фото">
-    <div class="modal__overlay"></div>
-    <div class="modal__content">
-      <button class="modal__close" aria-label="Закрыть">&times;</button>
-      <img class="modal__img" src="" alt="">
-      <p class="modal__caption"></p>
-    </div>
   </div>
-
   <aside
     class="sidebar page-sidebar"
     aria-label="Контакты и социальные сети"
@@ -190,6 +200,19 @@
       </p>
     </section>
   </aside>
+    </div>
+  </main>
+  </main>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Просмотр фото">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+      <button class="modal__close" aria-label="Закрыть">&times;</button>
+      <img class="modal__img" src="" alt="">
+      <p class="modal__caption"></p>
+    </div>
+  </div>
+
 
   <footer class="footer page-footer" itemprop="footer">
     <div class="footer__inner">
