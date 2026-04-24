@@ -1,0 +1,227 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #edeef0; /* Типичный цвет фона соцсетей */
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Header --- */
+.header {
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 10px 0;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  color: #2787F5;
+  font-size: 1.5rem;
+}
+
+.header__search input {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background-color: #f2f3f5;
+  width: 250px;
+}
+
+/* --- Layout --- */
+.main-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  margin-top: 20px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: 1fr; /* Адаптивность для мобильных */
+  }
+}
+
+/* --- Base Card --- */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+/* --- Avatar --- */
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.avatar-img {
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #f0f0f0;
+}
+
+.avatar--small .avatar-img { width: 40px; height: 40px; }
+.avatar--medium .avatar-img { width: 50px; height: 50px; }
+.avatar--large .avatar-img { width: 100px; height: 100px; margin: 0 auto; display: block; }
+
+.avatar-online-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  background-color: #4CAF50;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+/* --- User Profile --- */
+.user-profile {
+  text-align: center;
+}
+
+.user-profile__name {
+  color: #62d08e;
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.user-profile__username {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.user-profile__bio {
+  margin: 15px 0;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.user-profile__stats {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-item strong {
+  font-size: 1.1rem;
+  color: #2787F5;
+}
+
+.stat-item span {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* --- Friend List --- */
+.friend-list h3 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.friend-item:hover .friend-item__name {
+  color: #2787F5;
+}
+
+/* --- Feed --- */
+.feed h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* --- Post Card --- */
+.post-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.post-card__author-info h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.post-card__date {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.post-card__content p {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.post-card__image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.post-card__actions {
+  display: flex;
+  gap: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #666;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #f0f2f5;
+}
+
+.like-btn:hover {
+  color: #e74c3c;
+}

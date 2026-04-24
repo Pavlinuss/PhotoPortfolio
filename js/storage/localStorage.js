@@ -42,10 +42,8 @@ export default class LocalStorageService {
                 return parsed.value;
             }
 
-            // If something stored plain JSON (not our cache envelope), return it as-is.
             return parsed;
         } catch (error) {
-            // Non-JSON values (e.g. "all") may coexist in localStorage; treat them as raw strings.
             if (error instanceof SyntaxError) {
                 return this.storage.getItem(key);
             }
@@ -72,7 +70,6 @@ export default class LocalStorageService {
                     this.remove(key);
                 }
             } catch {
-                // ignore non-JSON items
             }
         }
     }
